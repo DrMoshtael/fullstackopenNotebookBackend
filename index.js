@@ -5,6 +5,8 @@ const app = express()
 
 app.use(cors())
 
+app.use(express.static('dist'))
+
 let notes = [
     {
       id: 1,
@@ -78,8 +80,6 @@ app.post('/api/notes', (request, response) => {
 
     response.json(note)
 })
-
-app.use(express.static('dist'))
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
